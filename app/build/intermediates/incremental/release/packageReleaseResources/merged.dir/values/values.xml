@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="display_override">
+    
+      
+        <item>standalone</item>
+      
+    
+      
+        <item>minimal-ui</item>
+      
+    
+      
+        <item>browser</item>
+      
+    
+    </string-array>
+    <bool name="enableNotification">true</bool>
+    <bool name="enableSiteSettingsShortcut">true</bool>
+    <color name="backgroundColor">#0A0A0A</color>
+    <color name="colorPrimary">#0A0A0A</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="navigationColor">#000000</color>
+    <color name="navigationColorDark">#000000</color>
+    <color name="navigationDividerColor">#000000</color>
+    <color name="navigationDividerColorDark">#000000</color>
+    <color name="shortcut_background">#F5F5F5</color>
+    <integer name="splashScreenFadeOutDuration">300</integer>
+    <string name="appName" translatable="false">mojomaxi</string>
+    <string name="assetStatements">
+    [{
+        \"relation\": [\"delegate_permission/common.handle_all_urls\"],
+        \"target\": {
+            \"namespace\": \"web\",
+            \"site\": \"https://mojomaxi.com\"
+        }
+    }]
+    
+  </string>
+    <string name="fallbackType" translatable="false">customtabs</string>
+    <string name="fullScopeUrl" translatable="false">https://mojomaxi.com/</string>
+    <string name="generatorApp" translatable="false">bubblewrap-cli</string>
+    <string name="hostName" translatable="false">mojomaxi.com</string>
+    <string name="launchUrl" translatable="false">https://mojomaxi.com/app</string>
+    <string name="launcherName" translatable="false">mojomaxi</string>
+    <string name="orientation" translatable="false">portrait</string>
+    <string name="providerAuthority" translatable="false">com.mojomaxi.app.fileprovider</string>
+    <string name="webManifestUrl" translatable="false">https://mojomaxi.com/site.webmanifest</string>
+</resources>

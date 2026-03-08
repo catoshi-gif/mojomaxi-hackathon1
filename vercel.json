@@ -1,0 +1,7 @@
+{
+  "crons": [
+    { "path": "/api/health",         "schedule": "* * * * *"    },
+    { "path": "/api/rebalance/cron", "schedule": "* * * * *"    },
+    { "path": "/api/admin/cron",     "schedule": "*/15 * * * *" }
+  ]
+}

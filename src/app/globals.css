@@ -1,0 +1,62 @@
+@import "@solana/wallet-adapter-react-ui/styles.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --brand-pink: #FD1B77;
+  --brand-purple: #E31BFD;
+  --brand-mint: #1BFDB2;
+  --brand-black: #0A0A0A;
+  --brand-white: #FAFAFA;
+  --brand-gradient: linear-gradient(90deg, #FD1B77 0%, #E31BFD 50%, #1BFDB2 100%);
+}
+
+/* Custom global tweaks */
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0A0A0A; /* matches <main> background */
+}
+
+/* ---------------------------------------------------------
+   Full-bleed utility for homepage (and other marketing pages)
+   ---------------------------------------------------------
+   NOTE: We intentionally avoid touching `html, body` overflow,
+   because on some browsers (notably WebKit/iOS Safari) setting
+   overflow on the root element breaks `position: sticky`.
+   This class allows a section to escape the centered layout and
+   span the full viewport width while keeping the header sticky.
+*/
+.mm-full-bleed {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  /* Prevent any subpixel overflow without making the root
+     a scrolling/clipping context. This keeps the header's
+     sticky behavior intact. */
+  overflow-x: clip;
+}
+
+/* Prefer small viewport units to account for OS scrollbars */
+@supports (width: 100svw) {
+  .mm-full-bleed {
+    width: 100svw;
+    left: auto;
+    right: auto;
+    margin-left: calc(50% - 50svw);
+    margin-right: calc(50% - 50svw);
+  }
+}
+
+/* Fallback for older browsers that don't support `overflow-x: clip` */
+@supports not (overflow-x: clip) {
+  .mm-full-bleed { overflow-x: hidden; }
+}

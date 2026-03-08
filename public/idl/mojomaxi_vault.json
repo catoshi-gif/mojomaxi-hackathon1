@@ -1,0 +1,914 @@
+{
+  "version": "0.1.0",
+  "name": "mojovault",
+  "instructions": [
+    {
+      "name": "initVault",
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultAuthority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "setId",
+          "type": {
+            "array": [
+              "u8",
+              16
+            ]
+          }
+        },
+        {
+          "name": "feeBps",
+          "type": {
+            "option": "u16"
+          }
+        }
+      ]
+    },
+    {
+      "name": "setPaused",
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "pause",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "setFeeBps",
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "newBps",
+          "type": "u16"
+        }
+      ]
+    },
+    {
+      "name": "setTreasury",
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "newTreasury",
+          "type": "publicKey"
+        }
+      ]
+    },
+    {
+      "name": "initConfig",
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "allowedRelayers",
+          "type": {
+            "vec": "publicKey"
+          }
+        }
+      ]
+    },
+    {
+      "name": "setRelayers",
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "config",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "allowedRelayers",
+          "type": {
+            "vec": "publicKey"
+          }
+        }
+      ]
+    },
+    {
+      "name": "withdraw",
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultAuthority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "vaultToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "executeSwap",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultAuthority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "srcVaultToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "dstVaultToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "ephemeralSrc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "ephemeralDst",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "srcMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "dstMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "treasuryAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "srcTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "dstTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "jupiterProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "ixSysvar",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "programAsSigner",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "config",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "amountIn",
+          "type": "u64"
+        },
+        {
+          "name": "minOutHint",
+          "type": "u64"
+        },
+        {
+          "name": "platformFeeBps",
+          "type": "u16"
+        },
+        {
+          "name": "swapIxData",
+          "type": {
+            "vec": "u8"
+          }
+        },
+        {
+          "name": "tokenLedgerData",
+          "type": {
+            "option": {
+              "vec": "u8"
+            }
+          }
+        },
+        {
+          "name": "setupDatas",
+          "type": {
+            "vec": {
+              "vec": "u8"
+            }
+          }
+        },
+        {
+          "name": "cleanupData",
+          "type": {
+            "option": {
+              "vec": "u8"
+            }
+          }
+        },
+        {
+          "name": "tlAccsLen",
+          "type": "u32"
+        },
+        {
+          "name": "setupAccsLens",
+          "type": {
+            "vec": "u32"
+          }
+        },
+        {
+          "name": "routeAccsLen",
+          "type": "u32"
+        },
+        {
+          "name": "cleanupAccsLen",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "executeSwapEcPda",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultAuthority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "swapAuthority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "srcVaultToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "dstVaultToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "ephemeralSrc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "ephemeralDst",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "srcMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "dstMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "treasuryAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "srcTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "dstTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "jupiterProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "ixSysvar",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "config",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "swapNonce",
+          "type": "u64"
+        },
+        {
+          "name": "amountIn",
+          "type": "u64"
+        },
+        {
+          "name": "minOutHint",
+          "type": "u64"
+        },
+        {
+          "name": "platformFeeBps",
+          "type": "u16"
+        },
+        {
+          "name": "swapIxData",
+          "type": {
+            "vec": "u8"
+          }
+        },
+        {
+          "name": "tokenLedgerData",
+          "type": {
+            "option": {
+              "vec": "u8"
+            }
+          }
+        },
+        {
+          "name": "setupDatas",
+          "type": {
+            "vec": {
+              "vec": "u8"
+            }
+          }
+        },
+        {
+          "name": "cleanupData",
+          "type": {
+            "option": {
+              "vec": "u8"
+            }
+          }
+        },
+        {
+          "name": "tlAccsLen",
+          "type": "u32"
+        },
+        {
+          "name": "setupAccsLens",
+          "type": {
+            "vec": "u32"
+          }
+        },
+        {
+          "name": "routeAccsLen",
+          "type": "u32"
+        },
+        {
+          "name": "cleanupAccsLen",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "sweepEcPdaBins",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "swapAuthority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "config",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "vaultPubkey",
+          "type": "publicKey"
+        },
+        {
+          "name": "swapNonce",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "postSwapCleanupEcPda",
+      "accounts": [
+        {
+          "name": "payer",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultAuthority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "swapAuthority",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "srcVaultToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "dstVaultToken",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "ephemeralSrc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "ephemeralDst",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "srcMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "dstMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "srcTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "dstTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "config",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "swapNonce",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Vault",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "publicKey"
+          },
+          {
+            "name": "setId",
+            "type": {
+              "array": [
+                "u8",
+                16
+              ]
+            }
+          },
+          {
+            "name": "treasury",
+            "type": "publicKey"
+          },
+          {
+            "name": "feeBps",
+            "type": "u16"
+          },
+          {
+            "name": "paused",
+            "type": "bool"
+          },
+          {
+            "name": "vaultBump",
+            "type": "u8"
+          },
+          {
+            "name": "authBump",
+            "type": "u8"
+          },
+          {
+            "name": "trades",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Config",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "allowedRelayers",
+            "type": {
+              "vec": "publicKey"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "events": [
+    {
+      "name": "SwapEvent",
+      "fields": [
+        {
+          "name": "vault",
+          "type": "publicKey",
+          "index": false
+        },
+        {
+          "name": "srcMint",
+          "type": "publicKey",
+          "index": false
+        },
+        {
+          "name": "dstMint",
+          "type": "publicKey",
+          "index": false
+        },
+        {
+          "name": "amountInHint",
+          "type": "u64",
+          "index": false
+        },
+        {
+          "name": "minOutHint",
+          "type": "u64",
+          "index": false
+        },
+        {
+          "name": "amountOut",
+          "type": "u64",
+          "index": false
+        },
+        {
+          "name": "feeBps",
+          "type": "u32",
+          "index": false
+        },
+        {
+          "name": "feeAmount",
+          "type": "u64",
+          "index": false
+        }
+      ]
+    },
+    {
+      "name": "TreasuryUpdated",
+      "fields": [
+        {
+          "name": "vault",
+          "type": "publicKey",
+          "index": false
+        },
+        {
+          "name": "old",
+          "type": "publicKey",
+          "index": false
+        },
+        {
+          "name": "new",
+          "type": "publicKey",
+          "index": false
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Paused",
+      "msg": "Vault is paused"
+    },
+    {
+      "code": 6001,
+      "name": "Unauthorized",
+      "msg": "Unauthorized"
+    },
+    {
+      "code": 6002,
+      "name": "TooManyRelayers",
+      "msg": "Too many allowed relayers"
+    },
+    {
+      "code": 6003,
+      "name": "MathUnderflow",
+      "msg": "Math underflow"
+    },
+    {
+      "code": 6004,
+      "name": "MathOverflow",
+      "msg": "Math overflow"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidAmount",
+      "msg": "Invalid amount"
+    },
+    {
+      "code": 6006,
+      "name": "InvalidTreasury",
+      "msg": "Invalid treasury address"
+    },
+    {
+      "code": 6007,
+      "name": "JupiterProgramMissing",
+      "msg": "Jupiter program ID mismatch"
+    },
+    {
+      "code": 6008,
+      "name": "RemainingAccountsTooShort",
+      "msg": "Remaining accounts vector too short or mis-declared."
+    },
+    {
+      "code": 6009,
+      "name": "VaultAuthorityMismatch",
+      "msg": "Vault authority PDA does not match expected derivation."
+    },
+    {
+      "code": 6010,
+      "name": "ProgramAsSignerMismatch",
+      "msg": "Jupiter PAS mismatch (neither current nor legacy)."
+    },
+    {
+      "code": 6011,
+      "name": "SourceOwnerMismatch",
+      "msg": "Vault token account must be owned by vault authority."
+    },
+    {
+      "code": 6012,
+      "name": "BadTreasuryOwner",
+      "msg": "Treasury ATA owner mismatch"
+    },
+    {
+      "code": 6013,
+      "name": "TreasuryMintMismatch",
+      "msg": "Treasury ATA mint must equal output mint"
+    },
+    {
+      "code": 6014,
+      "name": "BadSourceAta",
+      "msg": "Bad source ATA (must equal canonical ATA of owner for src mint)"
+    },
+    {
+      "code": 6015,
+      "name": "BadDestAta",
+      "msg": "Bad destination ATA (must equal canonical ATA of owner for dst mint)"
+    },
+    {
+      "code": 6016,
+      "name": "BadTreasuryAta",
+      "msg": "Bad treasury ATA (must equal canonical ATA of treasury for dst mint)"
+    },
+    {
+      "code": 6017,
+      "name": "BadAtaProgram",
+      "msg": "Associated Token program id mismatch"
+    },
+    {
+      "code": 6018,
+      "name": "InvalidSysvar",
+      "msg": "Instructions sysvar mismatch"
+    },
+    {
+      "code": 6019,
+      "name": "MinOutZeroDisallowed",
+      "msg": "min_out_hint must be > 0"
+    },
+    {
+      "code": 6020,
+      "name": "Overspent",
+      "msg": "Swap spent more than approved amount_in"
+    },
+    {
+      "code": 6021,
+      "name": "EcPdaOwnerMismatch",
+      "msg": "EC-PDA owner mismatch for ephemeral ATAs"
+    },
+    {
+      "code": 6022,
+      "name": "SwapAuthorityMismatch",
+      "msg": "Swap authority PDA mismatch"
+    },
+    {
+      "code": 6023,
+      "name": "SlippageExceeded",
+      "msg": "Slippage exceeded"
+    },
+    {
+      "code": 6024,
+      "name": "FeeTooHigh",
+      "msg": "Fee too high"
+    },
+    {
+      "code": 6025,
+      "name": "TokenProgramMismatch",
+      "msg": "Token program mismatch or not allowed"
+    },
+    {
+      "code": 6026,
+      "name": "TokenMintMismatch",
+      "msg": "Token account mint does not match provided mint"
+    },
+    {
+      "code": 6027,
+      "name": "JupTokenLedgerCpiFailed",
+      "msg": "Jupiter CPI (token ledger) failed"
+    },
+    {
+      "code": 6028,
+      "name": "JupSetupCpiFailed",
+      "msg": "Jupiter CPI (setup step) failed"
+    },
+    {
+      "code": 6029,
+      "name": "JupRouteCpiFailed",
+      "msg": "Jupiter CPI (route step) failed"
+    },
+    {
+      "code": 6030,
+      "name": "JupCleanupCpiFailed",
+      "msg": "Jupiter CPI (cleanup step) failed"
+    }
+  ],
+  "metadata": {
+    "address": "2Nz2Ls8NfaLDR92yDg8NVwoU6jzumdTdJFWq2rLr3Nyp"
+  }
+}

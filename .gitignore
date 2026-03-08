@@ -1,0 +1,21 @@
+# dependencies
+node_modules
+
+# lockfiles you are not using (npm project)
+pnpm-lock.yaml
+yarn.lock
+
+# build output
+.next
+out
+
+# env
+.env
+.env.local
+.env.*.local
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

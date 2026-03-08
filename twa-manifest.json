@@ -1,0 +1,52 @@
+{
+  "packageId": "com.mojomaxi.app",
+  "host": "mojomaxi.com",
+  "name": "mojomaxi",
+  "launcherName": "mojomaxi",
+  "display": "standalone",
+  "themeColor": "#0A0A0A",
+  "themeColorDark": "#000000",
+  "navigationColor": "#000000",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#0A0A0A",
+  "enableNotifications": true,
+  "startUrl": "/app",
+  "iconUrl": "https://mojomaxi.com/icon-512.png",
+  "maskableIconUrl": "https://mojomaxi.com/icon-512-maskable.png",
+  "monochromeIconUrl": "https://mojomaxi.com/icon-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "/workspaces/mojomaxi/android.keystore",
+    "alias": "android"
+  },
+  "appVersionName": "2",
+  "appVersionCode": 2,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://mojomaxi.com/site.webmanifest",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://mojomaxi.com/",
+  "minSdkVersion": 21,
+  "orientation": "portrait",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "protocolHandlers": [],
+  "fileHandlers": [],
+  "launchHandlerClientMode": "",
+  "displayOverride": [
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ],
+  "appVersion": "2"
+}
