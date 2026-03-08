@@ -327,7 +327,7 @@ React.useEffect(() => {
                   />
                 </div>
                 <p className="mt-2 text-center text-xs text-slate-400/90">
-                  * Stats reflect mojomaxi execution telemetry and may differ from onchain explorers.
+                  * Stats reflect Mojomaxi execution telemetry and may differ from onchain explorers.
                 </p>
               </div>
               </div>
@@ -393,13 +393,13 @@ React.useEffect(() => {
 
 
 
-        {/* WHY TRADERS CHOOSE MOJOMAXI */}
+        {/* WHY TRADERS CHOOSE Mojomaxi */}
         <section className="mm-cv-auto mt-20 border-t border-white/5 pt-12">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div className="text-center sm:text-left">
               <h2 className="mt-2 text-balance text-2xl font-semibold sm:text-3xl">
                 <span className="bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text text-transparent">
-                  Why Traders Choose mojomaxi
+                  Why Traders Choose Mojomaxi
                 </span>
               </h2>
             </div>
@@ -453,7 +453,7 @@ React.useEffect(() => {
           <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-black/40">
             <Image
               src="/brand/rebalancebot.webp"
-              alt="mojomaxi rebalance bot panel"
+              alt="Mojomaxi rebalance bot panel"
               width={1920}
               height={980}
               className="h-auto w-full"
@@ -525,7 +525,7 @@ React.useEffect(() => {
               />
               <Image
                 src="/brand/mojoinverted.svg"
-                alt="mojomaxi logo"
+                alt="Mojomaxi logo"
                 width={560}
                 height={560}
                 className="h-auto w-full max-w-[252px] md:max-w-[294px] opacity-95"
@@ -551,7 +551,7 @@ React.useEffect(() => {
             </div>
             <div className="flex flex-wrap items-center justify-center gap-8 sm:justify-end">
 <SocialGlowButton
-            href="https://x.com/yomojomaxi"
+            href="https://x.com/yoMojomaxi"
             src="/assets/xmojo.webp"
             alt="Follow Mojomaxi on X"
             ariaLabel="Follow Mojomaxi on X"
@@ -563,7 +563,7 @@ React.useEffect(() => {
             ariaLabel="Join Our Discord"
           />
               <SocialGlowButton
-            href="https://www.youtube.com/@mojomaxi"
+            href="https://www.youtube.com/@Mojomaxi"
             src="/assets/ytmojo.webp"
             alt="Subscribe to Mojomaxi on YouTube"
             ariaLabel="Subscribe to Mojomaxi on YouTube"
@@ -606,7 +606,7 @@ React.useEffect(() => {
 
 {/* FOOTER + DISCLAIMERS */}
         <footer className="mm-cv-auto mt-10 text-center text-xs text-slate-300/80/90">
-          <div>© {new Date().getFullYear()} mojomaxi, all rights reserved.</div>
+          <div>© {new Date().getFullYear()} Mojomaxi, all rights reserved.</div>
           <DisclaimerBubble title="Disclaimers">
 <div>
               Non-custodial vaults: Mojomaxi never holds user assets. Funds stay in program-derived
@@ -1364,7 +1364,7 @@ const FEATURES = [
     iconSrc: "/brand/scale.webp",
     title: "Stay Balanced Automatically",
     copy:
-      "Choose your tokens + cadence; mojomaxi rebalances toward equal $ value over time.",
+      "Choose your tokens + cadence; Mojomaxi rebalances toward equal $ value over time.",
   },
   {
     emoji: "📡",
